@@ -1,13 +1,78 @@
 _format_version: "2.1"
 
+
+# declaring services
 services:
-  - name: icc-aria
-    url: https://icc-aria.ir/
+
+  # declare a service name
+  - name: test-mock-server-first
+
+    # declare a host name
+    host: mock_api_1
+
+    # what path does this host belongs
+    path: /
+
+    # port of the host service provider
+    port: 8000
+
+    # list of the routes 
     routes:
-      - name: gists-route
+
+      # creating one route for mock_api
+      - name: mock-api-route-first
+
+        # declaring entrance hosts
+        hosts: 
+          - mock_api_1
+          - localhost
+
+        # declaring allowed methods
         methods:
             - GET
-            - POST
+
+        # which path leads to this service
         paths:
-          - /icc-aria
+          - /mock/1/
+
+        # strip the entered path
         strip_path: true
+  
+  # declare a service name
+  - name: test-mock-server-second
+
+    # declare a host name
+    host: mock_api_2
+
+    # what path does this host belongs
+    path: /
+
+    # port of the host service provider
+    port: 8000
+
+    # list of the routes 
+    routes:
+
+      # creating one route for mock_api
+      - name: mock-api-route-second
+
+        # declaring entrance hosts
+        hosts: 
+          - mock_api_2
+          - localhost
+
+        # declaring allowed methods
+        methods:
+            - GET
+
+        # which path leads to this service
+        paths:
+          - /mock/2/
+
+        # strip the entered path
+        strip_path: true
+
+
+
+
+ 

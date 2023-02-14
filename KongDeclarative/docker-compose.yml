@@ -1,11 +1,21 @@
-version: "3.7"
+version: "3.9"
 
 services:
+
+  # defining the name of the service
   kong:
+
+    # defining the image we want to use as base
     image: kong:3.1.1-alpine
-    container_name: KONG_ADMIN_ACCESS_LOG
+    
+    # defingin container name
+    container_name: kong
+
+    # implementing the config for db less configs
     volumes:
       - ./kong.yml:/usr/local/kong/declarative/kong.yml
+
+    # declaring the environment variables 
     environment:
       - KONG_DATABASE=off
       - KONG_DECLARATIVE_CONFIG=/usr/local/kong/declarative/kong.yml
@@ -13,9 +23,36 @@ services:
       - KONG_ADMIN_ACCESS_LOG=/dev/stdout
       - KONG_PROXY_ERROR_LOG=/dev/stderr
       - KONG_ADMIN_ERROR_LOG=/dev/stderr
-      - KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+
+    # outer ports
     ports:
-      - "8000:8000"
-      - "8443:8443"
-      - "127.0.0.1:8001:8001"
-      - "127.0.0.1:8444:8444"
+      - "80:8000"
+      - "8001:8001"
+
+  # creatomg mock api 1
+  mock_api_1:
+    image: python:3.10-alpine
+    container_name: mock_api_1
+    working_dir: /user/src
+    command: sh -c "pip install fastapi uvicorn && uvicorn main:app --host 0.0.0.0 --port 8000"
+    volumes:
+      - ./mock_api.py:/user/src/main.py
+    expose:
+      - 8000
+    
+    environment:
+      - name=first
+
+  # creatomg mock api 2
+  mock_api_2:
+    image: python:3.10-alpine
+    container_name: mock_api_2
+    working_dir: /user/src
+    command: sh -c "pip install fastapi uvicorn && uvicorn main:app --host 0.0.0.0 --port 8000"
+    volumes:
+      - ./mock_api.py:/user/src/main.py
+    expose:
+      - 8000
+    environment:
+      - name=second
