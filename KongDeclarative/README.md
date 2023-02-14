@@ -1,5 +1,4 @@
 <div align="center">
-<img loading="lazy" style="width:500px" src="../docs/kong-logo.png">
 <h1 align="center">Kong Declarative (DB-Less) approach</h1>
 <h3 align="center">A brief sample of creating a service and route for two api as sample </h3>
 </div>
