@@ -43,8 +43,8 @@ Popular features deployed through Kong include:
 
 There are a lot of ways to deploy kong but i will be teaching you two types:
 
-- <a href="./KongDeclarative/README.md">Declarative or DB-Less Mode</a>
-- <a href="./KongWithPrimate/README.md">With Primate and Database</a>
+- <a href="./KongDeclarative">Declarative or DB-Less Mode</a>
+- <a href="./KongWithPrimate">With Primate and Database</a>
 
 
 
