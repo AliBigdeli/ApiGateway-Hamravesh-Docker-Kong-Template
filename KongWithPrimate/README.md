@@ -1,4 +1,6 @@
 <div align="center">
+<div align="center" ><img loading="lazy" style="width:400px" src="../docs/primate-logo.png"></div>
+
 <h1 align="center">Kong With Primate Approach</h1>
 <h3 align="center">A brief sample of creating a service and route for two api as sample </h3>
 </div>

@@ -1,5 +1,5 @@
 <div align="center">
-<img loading="lazy" style="width:700px" src="./docs/kong-logo.png">
+<img loading="lazy" style="width:700px" src="./docs/banner.png">
 <h1 align="center">Kong ApiGateway Deployments</h1>
 <h3 align="center">Sample repo to show you how you can use kong with ui or without</h3>
 </div>
