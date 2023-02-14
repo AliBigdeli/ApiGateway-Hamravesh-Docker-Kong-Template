@@ -1,5 +1,5 @@
 <div align="center">
-<h1 align="center">Kong Declarative (DB-Less) approach</h1>
+<h1 align="center">Kong Declarative (DB-Less) Approach</h1>
 <h3 align="center">A brief sample of creating a service and route for two api as sample </h3>
 </div>
 
